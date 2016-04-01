@@ -27,4 +27,8 @@ public class Point {
 		return b.isEquals();
 	}
 
+	public String toString() {
+		return "x: " + x + " y: " + y;
+	}
+
 }
