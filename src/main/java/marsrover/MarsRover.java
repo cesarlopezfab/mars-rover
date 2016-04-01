@@ -20,6 +20,14 @@ public class MarsRover {
 			if ("S".equals(direction)) {
 				position = new Point(position.x, position.y - 1);
 			}
+
+			if ("E".equals(direction)) {
+				position = new Point(position.x + 1, position.y);
+			}
+
+			if ("W".equals(direction)) {
+				position = new Point(position.x -1, position.y);
+			}
 		}
 
 	}
