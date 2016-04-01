@@ -1,5 +1,6 @@
 package marsrover;
 
+import location.Direction;
 import location.Point;
 import location.PointFixture;
 

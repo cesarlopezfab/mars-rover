@@ -1,13 +1,12 @@
 package location;
 
-import marsrover.Direction;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static marsrover.Direction.*;
+import static location.Direction.*;
 
 public class Point {
 	private static final Map<Direction, Delta> INCREMENTS = new ConcurrentHashMap<Direction, Delta>();

@@ -1,6 +1,6 @@
 package location;
 
-import static marsrover.Direction.*;
+import static location.Direction.*;
 
 public class PointFixture {
 

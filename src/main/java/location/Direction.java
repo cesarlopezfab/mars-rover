@@ -1,4 +1,4 @@
-package marsrover;
+package location;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

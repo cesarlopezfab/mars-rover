@@ -1,7 +1,7 @@
 package marsrover;
 
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
-import location.Point;
+import location.Direction;
 import location.PointFixture;
 import org.junit.Test;
 import org.junit.runner.RunWith;

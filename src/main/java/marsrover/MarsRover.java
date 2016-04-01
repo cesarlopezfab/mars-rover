@@ -1,7 +1,6 @@
 package marsrover;
 
-import static marsrover.Direction.*;
-
+import location.Direction;
 import location.Point;
 
 public class MarsRover {
