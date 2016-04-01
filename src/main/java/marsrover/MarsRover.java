@@ -14,42 +14,41 @@ public class MarsRover {
 
 	public void receiveCommands(String... commands) {
 
-		final String command = commands[0];
+		for (final String command : commands) {
+			if ("f".equals(command)) {
+				if ("N".equals(direction)) {
+					position = position.increaseY();
+				}
 
-		if ("f".equals(command)) {
-			if ("N".equals(direction)) {
-				position = position.increaseY();
+				if ("S".equals(direction)) {
+					position = position.decreaseY();
+				}
+
+				if ("E".equals(direction)) {
+					position = position.increaseX();
+				}
+
+				if ("W".equals(direction)) {
+					position = position.decreaseX();
+				}
 			}
 
-			if ("S".equals(direction)) {
-				position = position.decreaseY();
-			}
+			if ("b".equals(command)) {
+				if ("N".equals(direction)) {
+					position = position.decreaseY();
+				}
 
-			if ("E".equals(direction)) {
-				position = position.increaseX();
-			}
+				if ("S".equals(direction)) {
+					position = position.increaseY();
+				}
 
-			if ("W".equals(direction)) {
-				position = position.decreaseX();
-			}
-		}
+				if ("E".equals(direction)) {
+					position = position.decreaseX();
+				}
 
-
-		if ("b".equals(command)) {
-			if ("N".equals(direction)) {
-				position = position.decreaseY();
-			}
-
-			if ("S".equals(direction)) {
-				position = position.increaseY();
-			}
-
-			if ("E".equals(direction)) {
-				position = position.decreaseX();
-			}
-
-			if ("W".equals(direction)) {
-				position = position.increaseX();
+				if ("W".equals(direction)) {
+					position = position.increaseX();
+				}
 			}
 		}
 

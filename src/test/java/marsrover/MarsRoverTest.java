@@ -13,9 +13,6 @@ import static org.hamcrest.core.Is.is;
 public class MarsRoverTest {
 
 
-	private final Point startingPoint = MarsRoverFixture.STARTING_POINT;
-
-
 	public class MovesForward {
 
 		@Test
@@ -78,6 +75,16 @@ public class MarsRoverTest {
 			assertThat(rover.position, is(PointFixture.EAST_OF_START));
 		}
 
+	}
+
+	public class SeveralCommands {
+
+		@Test
+		public void staysInPlaceWhenForwardAndThenBackwardCommands() {
+			final MarsRover rover = MarsRoverFixture.facingWest();
+			rover.receiveCommands("b", "f");
+			assertThat(rover.position, is(PointFixture.START));
+		}
 	}
 
 
