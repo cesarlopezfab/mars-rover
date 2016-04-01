@@ -9,7 +9,7 @@ public class MarsRoverTest {
 
 	private final String startingDirection = "N";
 	private final Point startingPoint = new Point(0, 0);
-	private final MarsRover rover = new MarsRover(startingPoint, startingDirection);;
+	private final MarsRover rover = new MarsRover(startingPoint, startingDirection);
 
 	@Test
 	public void startsAtPointXYFacingDirection() {
@@ -26,6 +26,13 @@ public class MarsRoverTest {
 	public void movesForwardWhenFacingNorth() {
 		rover.receiveCommands("f");
 		assertEquals(new Point(0, 1), rover.position);
+	}
+
+	@Test
+	public void movesForwardWhenFacingSouth() {
+		final MarsRover rover = new MarsRover(startingPoint, "S");
+		rover.receiveCommands("f");
+		assertEquals(new Point(0, -1), rover.position);
 	}
 
 }

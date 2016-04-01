@@ -13,7 +13,13 @@ public class MarsRover {
 		}
 
 		public void receiveCommands(String... commands) {
-			position = new Point(0, 1);
+			if ("N".equals(direction)) {
+				position = new Point(position.x, position.y + 1);
+			}
+
+			if ("S".equals(direction)) {
+				position = new Point(position.x, position.y - 1);
+			}
 		}
 
 	}
