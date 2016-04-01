@@ -15,3 +15,7 @@ Rules:
 Nice to have features:
 
 - Rover is able to auto detect position on landing
+
+Technical issues:
+
+- Rover mutates the position
