@@ -42,20 +42,6 @@ public class MarsRoverTest {
 		assertEquals(new Point(0, 1), rover.position);
 	}
 
-	public class MarsRover {
-		private final String direction;
-		private Point position;
-
-		public MarsRover(Point position, String direction) {
-			this.position = position;
-			this.direction = direction;
-		}
-
-		public void receiveCommands(String[] commands) {
-			this.position = new Point(0, 1);
-		}
-
-	}
 
 
 }
