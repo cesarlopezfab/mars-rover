@@ -13,21 +13,48 @@ public class MarsRover {
 		}
 
 		public void receiveCommands(String... commands) {
-			if ("N".equals(direction)) {
-				position = new Point(position.x, position.y + 1);
+
+			final String command = commands[0];
+
+			if ("f".equals(command)) {
+				if ("N".equals(direction)) {
+					position = new Point(position.x, position.y + 1);
+				}
+
+				if ("S".equals(direction)) {
+					position = new Point(position.x, position.y - 1);
+				}
+
+				if ("E".equals(direction)) {
+					position = new Point(position.x + 1, position.y);
+				}
+
+				if ("W".equals(direction)) {
+					position = new Point(position.x -1, position.y);
+				}
 			}
 
-			if ("S".equals(direction)) {
-				position = new Point(position.x, position.y - 1);
+
+			if ("b".equals(command)) {
+				if ("N".equals(direction)) {
+					position = new Point(position.x, position.y - 1);
+				}
+
+				if ("S".equals(direction)) {
+					position = new Point(position.x, position.y + 1);
+				}
+
+				if ("E".equals(direction)) {
+					position = new Point(position.x - 1, position.y);
+				}
+
+				if ("W".equals(direction)) {
+					position = new Point(position.x + 1, position.y);
+				}
 			}
 
-			if ("E".equals(direction)) {
-				position = new Point(position.x + 1, position.y);
-			}
 
-			if ("W".equals(direction)) {
-				position = new Point(position.x -1, position.y);
-			}
+
 		}
 
 	}

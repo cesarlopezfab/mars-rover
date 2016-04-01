@@ -46,6 +46,38 @@ public class MarsRoverTest {
 
 	}
 
+	public class MovesBackward {
+
+		@Test
+		public void whenFacingNorth() {
+			final MarsRover rover = MarsRoverFixture.facingNorth();
+			rover.receiveCommands("b");
+			assertEquals(new Point(0, -1), rover.position);
+		}
+
+		@Test
+		public void whenFacingSouth() {
+			final MarsRover rover = MarsRoverFixture.facingSouth();
+			rover.receiveCommands("b");
+			assertEquals(new Point(0, 1), rover.position);
+		}
+
+		@Test
+		public void whenFacingEast() {
+			final MarsRover rover = MarsRoverFixture.facingEast();
+			rover.receiveCommands("b");
+			assertEquals(new Point(-1, 0), rover.position);
+		}
+
+		@Test
+		public void whenFacingWest() {
+			final MarsRover rover = MarsRoverFixture.facingWest();
+			rover.receiveCommands("b");
+			assertEquals(new Point(1, 0), rover.position);
+		}
+
+	}
+
 
 
 }
