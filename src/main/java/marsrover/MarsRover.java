@@ -53,6 +53,16 @@ public class MarsRover {
 					position = position.increaseX();
 				}
 			}
+
+			if ("l".equals(command)) {
+				direction = direction.previous();
+			}
+
+			if ("r".equals(command)) {
+				direction = direction.next();
+			}
+
+
 		}
 
 	}

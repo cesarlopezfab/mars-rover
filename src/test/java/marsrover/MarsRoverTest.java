@@ -87,5 +87,22 @@ public class MarsRoverTest {
 		}
 	}
 
+	public class Rotation {
+
+		@Test
+		public void facesNorthAfterRotatingLeftWhenFacingEast() {
+			final MarsRover rover = MarsRoverFixture.facingEast();
+			rover.receiveCommands("l");
+			assertThat(rover.direction, is(Direction.NORTH));
+		}
+
+		@Test
+		public void facesNorthAfterRotatingRightWhenFacingWest() {
+			final MarsRover rover = MarsRoverFixture.facingWest();
+			rover.receiveCommands("r");
+			assertThat(rover.direction, is(Direction.NORTH));
+		}
+	}
+
 
 }
