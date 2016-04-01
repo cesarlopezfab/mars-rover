@@ -18,4 +18,4 @@ Nice to have features:
 
 Technical issues:
 
-- Rover mutates the position
+- Rover mutates the position & direction
