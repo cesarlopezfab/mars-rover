@@ -1,13 +1,15 @@
 package marsrover;
 
+import static marsrover.Direction.*;
+
 import location.Point;
 
 public class MarsRover {
 
-	final String direction;
+	Direction direction;
 	Point position;
 
-	MarsRover(final Point position, final String direction) {
+	MarsRover(final Point position, final Direction direction) {
 		this.position = position;
 		this.direction = direction;
 	}
@@ -15,43 +17,43 @@ public class MarsRover {
 	public void receiveCommands(String... commands) {
 
 		for (final String command : commands) {
+
 			if ("f".equals(command)) {
-				if ("N".equals(direction)) {
+				if (NORTH.equals(direction)) {
 					position = position.increaseY();
 				}
 
-				if ("S".equals(direction)) {
+				if (SOUTH.equals(direction)) {
 					position = position.decreaseY();
 				}
 
-				if ("E".equals(direction)) {
+				if (EAST.equals(direction)) {
 					position = position.increaseX();
 				}
 
-				if ("W".equals(direction)) {
+				if (WEST.equals(direction)) {
 					position = position.decreaseX();
 				}
 			}
 
 			if ("b".equals(command)) {
-				if ("N".equals(direction)) {
+				if (NORTH.equals(direction)) {
 					position = position.decreaseY();
 				}
 
-				if ("S".equals(direction)) {
+				if (SOUTH.equals(direction)) {
 					position = position.increaseY();
 				}
 
-				if ("E".equals(direction)) {
+				if (EAST.equals(direction)) {
 					position = position.decreaseX();
 				}
 
-				if ("W".equals(direction)) {
+				if (WEST.equals(direction)) {
 					position = position.increaseX();
 				}
 			}
 		}
-
 
 	}
 
