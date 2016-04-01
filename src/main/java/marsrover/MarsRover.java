@@ -19,39 +19,11 @@ public class MarsRover {
 		for (final String command : commands) {
 
 			if ("f".equals(command)) {
-				if (NORTH.equals(direction)) {
-					position = position.increaseY();
-				}
-
-				if (SOUTH.equals(direction)) {
-					position = position.decreaseY();
-				}
-
-				if (EAST.equals(direction)) {
-					position = position.increaseX();
-				}
-
-				if (WEST.equals(direction)) {
-					position = position.decreaseX();
-				}
+				position = position.nextPointIn(direction);
 			}
 
 			if ("b".equals(command)) {
-				if (NORTH.equals(direction)) {
-					position = position.decreaseY();
-				}
-
-				if (SOUTH.equals(direction)) {
-					position = position.increaseY();
-				}
-
-				if (EAST.equals(direction)) {
-					position = position.decreaseX();
-				}
-
-				if (WEST.equals(direction)) {
-					position = position.increaseX();
-				}
+				position = position.previousPointIn(direction);
 			}
 
 			if ("l".equals(command)) {
@@ -61,8 +33,6 @@ public class MarsRover {
 			if ("r".equals(command)) {
 				direction = direction.next();
 			}
-
-
 		}
 
 	}

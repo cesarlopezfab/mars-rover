@@ -1,9 +1,30 @@
 package location;
 
+import marsrover.Direction;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static marsrover.Direction.*;
+
 public class Point {
+	private static final Map<Direction, Delta> INCREMENTS = new ConcurrentHashMap<Direction, Delta>();
+	private static final Map<Direction, Delta> DECREMENTS = new ConcurrentHashMap<Direction, Delta>();
+
+	static {
+		INCREMENTS.put(NORTH, new Delta(0, 1));
+		INCREMENTS.put(EAST, new Delta(1, 0));
+		INCREMENTS.put(SOUTH, new Delta(0, -1));
+		INCREMENTS.put(WEST, new Delta(-1, 0));
+
+		DECREMENTS.put(NORTH, new Delta(0, -1));
+		DECREMENTS.put(EAST, new Delta(-1, 0));
+		DECREMENTS.put(SOUTH, new Delta(0, 1));
+		DECREMENTS.put(WEST, new Delta(1, 0));
+	}
+
 	public final Integer x;
 	public final Integer y;
 
@@ -31,20 +52,17 @@ public class Point {
 		return "x: " + x + " y: " + y;
 	}
 
-	public Point increaseY() {
-		return new Point(x, y + 1);
+	public Point nextPointIn(Direction direction) {
+		return sum(INCREMENTS.get(direction));
 	}
 
-	public Point decreaseY() {
-		return new Point(x, y - 1);
+	public Point previousPointIn(final Direction direction) {
+		return sum(DECREMENTS.get(direction));
 	}
 
-	public Point increaseX() {
-		return new Point(x + 1, y);
+	private Point sum(final Delta delta) {
+		return new Point(x + delta.x, y + delta.y);
 	}
 
-	public Point decreaseX() {
-		return new Point(x - 1, y);
-	}
 
 }
