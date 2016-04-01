@@ -18,6 +18,15 @@ public class MarsRoverTest {
         assertEquals(direction, rover.direction);
     }
 
+    @Test
+    public void marsRoverIsAbleToReceiveCommands() {
+        final String direction = "N";
+        final Point point = new Point(0, 0);
+        MarsRover rover = new MarsRover(point, direction);
+
+        rover.receiveCommands(new String[]{});
+    }
+
     public class MarsRover {
         private final String direction;
         private final Point position;
@@ -26,6 +35,10 @@ public class MarsRoverTest {
             this.position = position;
             this.direction = direction;
 
+        }
+
+        public void receiveCommands(String[] commands) {
+            
         }
     }
 
