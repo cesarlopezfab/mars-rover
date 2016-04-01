@@ -7,7 +7,7 @@ public class MarsRover {
 		final String direction;
 		Point position;
 
-		public MarsRover(final Point position, final String direction) {
+		MarsRover(final Point position, final String direction) {
 			this.position = position;
 			this.direction = direction;
 		}
