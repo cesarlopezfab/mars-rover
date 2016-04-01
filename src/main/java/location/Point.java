@@ -7,7 +7,7 @@ public class Point {
 	public final Integer x;
 	public final Integer y;
 
-	public Point(Integer x, Integer y) {
+	Point(Integer x, Integer y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -29,6 +29,22 @@ public class Point {
 
 	public String toString() {
 		return "x: " + x + " y: " + y;
+	}
+
+	public Point increaseY() {
+		return new Point(x, y + 1);
+	}
+
+	public Point decreaseY() {
+		return new Point(x, y - 1);
+	}
+
+	public Point increaseX() {
+		return new Point(x + 1, y);
+	}
+
+	public Point decreaseX() {
+		return new Point(x - 1, y);
 	}
 
 }

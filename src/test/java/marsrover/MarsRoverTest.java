@@ -2,10 +2,12 @@ package marsrover;
 
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
 import location.Point;
+import location.PointFixture;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 @RunWith(HierarchicalContextRunner.class)
 public class MarsRoverTest {
@@ -20,28 +22,28 @@ public class MarsRoverTest {
 		public void whenFacingNorth() {
 			final MarsRover rover = MarsRoverFixture.facingNorth();
 			rover.receiveCommands("f");
-			assertEquals(new Point(0, 1), rover.position);
+			assertThat(rover.position, is(PointFixture.NORTH_OF_START));
 		}
 
 		@Test
 		public void whenFacingSouth() {
 			final MarsRover rover = MarsRoverFixture.facingSouth();
 			rover.receiveCommands("f");
-			assertEquals(new Point(0, -1), rover.position);
+			assertThat(rover.position, is(PointFixture.SOUTH_OF_START));
 		}
 
 		@Test
 		public void whenFacingEast() {
 			final MarsRover rover = MarsRoverFixture.facingEast();
 			rover.receiveCommands("f");
-			assertEquals(new Point(1, 0), rover.position);
+			assertThat(rover.position, is(PointFixture.EAST_OF_START));
 		}
 
 		@Test
 		public void whenFacingWest() {
 			final MarsRover rover = MarsRoverFixture.facingWest();
 			rover.receiveCommands("f");
-			assertEquals(new Point(-1, 0), rover.position);
+			assertThat(rover.position, is(PointFixture.WEST_OF_START));
 		}
 
 	}
@@ -52,32 +54,31 @@ public class MarsRoverTest {
 		public void whenFacingNorth() {
 			final MarsRover rover = MarsRoverFixture.facingNorth();
 			rover.receiveCommands("b");
-			assertEquals(new Point(0, -1), rover.position);
+			assertThat(rover.position, is(PointFixture.SOUTH_OF_START));
 		}
 
 		@Test
 		public void whenFacingSouth() {
 			final MarsRover rover = MarsRoverFixture.facingSouth();
 			rover.receiveCommands("b");
-			assertEquals(new Point(0, 1), rover.position);
+			assertThat(rover.position, is(PointFixture.NORTH_OF_START));
 		}
 
 		@Test
 		public void whenFacingEast() {
 			final MarsRover rover = MarsRoverFixture.facingEast();
 			rover.receiveCommands("b");
-			assertEquals(new Point(-1, 0), rover.position);
+			assertThat(rover.position, is(PointFixture.WEST_OF_START));
 		}
 
 		@Test
 		public void whenFacingWest() {
 			final MarsRover rover = MarsRoverFixture.facingWest();
 			rover.receiveCommands("b");
-			assertEquals(new Point(1, 0), rover.position);
+			assertThat(rover.position, is(PointFixture.EAST_OF_START));
 		}
 
 	}
-
 
 
 }

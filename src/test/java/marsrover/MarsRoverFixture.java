@@ -1,10 +1,11 @@
 package marsrover;
 
 import location.Point;
+import location.PointFixture;
 
 public class MarsRoverFixture {
 
-	public static Point STARTING_POINT = new Point(0, 0);
+	public static Point STARTING_POINT = PointFixture.START;
 
 	public static MarsRover facingNorth() {
 		return new MarsRover(STARTING_POINT, "N");

@@ -4,57 +4,56 @@ import location.Point;
 
 public class MarsRover {
 
-		final String direction;
-		Point position;
+	final String direction;
+	Point position;
 
-		MarsRover(final Point position, final String direction) {
-			this.position = position;
-			this.direction = direction;
-		}
+	MarsRover(final Point position, final String direction) {
+		this.position = position;
+		this.direction = direction;
+	}
 
-		public void receiveCommands(String... commands) {
+	public void receiveCommands(String... commands) {
 
-			final String command = commands[0];
+		final String command = commands[0];
 
-			if ("f".equals(command)) {
-				if ("N".equals(direction)) {
-					position = new Point(position.x, position.y + 1);
-				}
-
-				if ("S".equals(direction)) {
-					position = new Point(position.x, position.y - 1);
-				}
-
-				if ("E".equals(direction)) {
-					position = new Point(position.x + 1, position.y);
-				}
-
-				if ("W".equals(direction)) {
-					position = new Point(position.x -1, position.y);
-				}
+		if ("f".equals(command)) {
+			if ("N".equals(direction)) {
+				position = position.increaseY();
 			}
 
-
-			if ("b".equals(command)) {
-				if ("N".equals(direction)) {
-					position = new Point(position.x, position.y - 1);
-				}
-
-				if ("S".equals(direction)) {
-					position = new Point(position.x, position.y + 1);
-				}
-
-				if ("E".equals(direction)) {
-					position = new Point(position.x - 1, position.y);
-				}
-
-				if ("W".equals(direction)) {
-					position = new Point(position.x + 1, position.y);
-				}
+			if ("S".equals(direction)) {
+				position = position.decreaseY();
 			}
 
+			if ("E".equals(direction)) {
+				position = position.increaseX();
+			}
 
-
+			if ("W".equals(direction)) {
+				position = position.decreaseX();
+			}
 		}
+
+
+		if ("b".equals(command)) {
+			if ("N".equals(direction)) {
+				position = position.decreaseY();
+			}
+
+			if ("S".equals(direction)) {
+				position = position.increaseY();
+			}
+
+			if ("E".equals(direction)) {
+				position = position.decreaseX();
+			}
+
+			if ("W".equals(direction)) {
+				position = position.increaseX();
+			}
+		}
+
 
 	}
+
+}
