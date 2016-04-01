@@ -3,6 +3,7 @@ package marsrover;
 import location.Point;
 
 public class MarsRover {
+
 		final String direction;
 		Point position;
 
@@ -11,7 +12,7 @@ public class MarsRover {
 			this.direction = direction;
 		}
 
-		public void receiveCommands(String[] commands) {
+		public void receiveCommands(String... commands) {
 			position = new Point(0, 1);
 		}
 

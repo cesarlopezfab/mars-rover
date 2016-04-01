@@ -1,47 +1,32 @@
 package marsrover;
 
 import location.Point;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class MarsRoverTest {
 
-	// rover.isFacing(NORTH);
-
+	private final String startingDirection = "N";
+	private final Point startingPoint = new Point(0, 0);
+	private final MarsRover rover= new MarsRover(startingPoint, startingDirection);;
 
 	@Test
 	public void marsRoverStartsAtPointXYFacingDirection() {
-		final String direction = "N";
-		final Point point = new Point(0, 0);
-		final MarsRover rover = new MarsRover(point, direction);
-
-		assertEquals(point, rover.position);
-		assertEquals(direction, rover.direction);
+		assertEquals(startingPoint, rover.position);
+		assertEquals(startingDirection, rover.direction);
 	}
 
 	@Test
 	public void marsRoverIsAbleToReceiveCommands() {
-		final String direction = "N";
-		final Point point = new Point(0, 0);
-		final MarsRover rover = new MarsRover(point, direction);
-
-		rover.receiveCommands(new String[]{});
+		rover.receiveCommands();
 	}
 
 	@Test
 	public void marsRoverMovesForwardWhenFacingNorth() {
-		final String direction = "N";
-		final Point point = new Point(0, 0);
-		MarsRover rover = new MarsRover(point, direction);
-
-		rover.receiveCommands(new String[]{"f"});
-
+		rover.receiveCommands("f");
 		assertEquals(new Point(0, 1), rover.position);
 	}
-
 
 
 }
