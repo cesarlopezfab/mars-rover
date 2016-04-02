@@ -24,6 +24,12 @@ Nice to have features:
 - [ ] Enter rest mode to reload batteries
 - [ ] Avoid executing non basic commands when low battery
 - [ ] Add some kind of sonar module
+- [ ] Add commands at runtime
+- [ ] Add "hardware" at runtime
+- [ ] Have several planets
+- [ ] Random events on planets (eclipses, solar flares...)
+- [ ] Thrusters
+- [ ] Movement on liquid
 
 Technical issues:
 
