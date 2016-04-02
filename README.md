@@ -14,14 +14,16 @@ Rules:
 
 Nice to have features:
 
-- Rover is able to auto detect position on landing
-- Add a map of the planet to MarsRover
-- Mars Rover can work on its own researching the surface
-- Research surface on each move
-- Enter rest mode to reload batteries
-- Avoid executing non basic commands when low battery
-- Add some kind of sonar module
+- [ ] Rover is able to auto detect position on landing
+- [ ] Add a map of the planet to MarsRover
+- [ ] Mars Rover can work on its own researching the surface
+- [ ] Research surface on each move
+- [ ] Enter rest mode to reload batteries
+- [ ] Avoid executing non basic commands when low battery
+- [ ] Add some kind of sonar module
 
 Technical issues:
 
-- Rover mutates the position & direction
+- [ ] Rover mutates the position & direction
+- [ ] TravisCI integration
+- [ ] Coverage report
