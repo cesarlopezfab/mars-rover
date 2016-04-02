@@ -25,4 +25,7 @@ public class MarsRoverFixture {
 		return new MarsRover(STARTING_POINT, Direction.WEST);
 	}
 
+	public static MarsRover facingEastOnSphericalPlanet(final int planetEquatorSize) {
+		return new MarsRover(STARTING_POINT, Direction.EAST);
+	}
 }

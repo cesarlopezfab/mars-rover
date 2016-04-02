@@ -3,6 +3,7 @@ package marsrover;
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
 import location.Direction;
 import location.PointFixture;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -104,5 +105,17 @@ public class MarsRoverTest {
 		}
 	}
 
+	public class SphericalPlanet {
+
+		@Test
+		@Ignore
+		public void isAtPosition1WhenMoving5EastThroughEquatorOfSize4Planet() {
+			final MarsRover rover = MarsRoverFixture.facingEastOnSphericalPlanet(4);
+
+			rover.receiveCommands("f", "f", "f", "f", "f");
+
+			assertThat(rover.position, is(PointFixture.EAST_OF_START));
+		}
+	}
 
 }
