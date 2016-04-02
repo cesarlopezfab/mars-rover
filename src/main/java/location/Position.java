@@ -47,10 +47,6 @@ public class Position {
 		return b.isEquals();
 	}
 
-	public String toString() {
-		return "x: " + x + " y: " + y;
-	}
-
 	public Position nextPositionIn(Direction direction) {
 		return sum(INCREMENTS.get(direction));
 	}

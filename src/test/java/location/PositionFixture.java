@@ -4,8 +4,19 @@ import static location.Direction.*;
 
 public class PositionFixture {
 
+	static class TestablePosition extends Position {
 
-	public static final Position LANDING = new Position(0, 0);
+		TestablePosition(final Integer x, final Integer y) {
+			super(x, y);
+		}
+
+		public String toString() {
+			return "x: " + x + " y: " + y;
+		}
+
+	}
+
+	public static final Position LANDING = new TestablePosition(0, 0);
 
 	public static final Position NORTH_OF_LANDING = LANDING.nextPositionIn(NORTH);
 	public static final Position SOUTH_OF_LANDING = LANDING.nextPositionIn(SOUTH);
