@@ -1,4 +1,4 @@
-https://travis-ci.org/cesarlopezfab/mars-rover.svg?branch=master
+[![Build Status](https://travis-ci.org/cesarlopezfab/mars-rover.svg?branch=master)](https://travis-ci.org/cesarlopezfab/mars-rover)
 [![Coverage Status](https://coveralls.io/repos/github/cesarlopezfab/mars-rover/badge.svg?branch=master)](https://coveralls.io/github/cesarlopezfab/mars-rover?branch=master)
 
 # mars-rover
