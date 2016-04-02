@@ -28,5 +28,5 @@ Nice to have features:
 Technical issues:
 
 - [ ] Rover mutates the position & direction
-- [ ] TravisCI integration
-- [ ] Coverage report
+- [x] TravisCI integration
+- [x] Coverage report
