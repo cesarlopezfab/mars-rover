@@ -1,14 +1,14 @@
 package marsrover;
 
 import location.Direction;
-import location.Point;
+import location.Position;
 
 public class MarsRover {
 
 	Direction direction;
-	Point position;
+	Position position;
 
-	MarsRover(final Point position, final Direction direction) {
+	MarsRover(final Position position, final Direction direction) {
 		this.position = position;
 		this.direction = direction;
 	}
@@ -18,11 +18,11 @@ public class MarsRover {
 		for (final String command : commands) {
 
 			if ("f".equals(command)) {
-				position = position.nextPointIn(direction);
+				position = position.nextPositionIn(direction);
 			}
 
 			if ("b".equals(command)) {
-				position = position.previousPointIn(direction);
+				position = position.previousPositionIn(direction);
 			}
 
 			if ("l".equals(command)) {

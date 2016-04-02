@@ -2,7 +2,7 @@ package marsrover;
 
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
 import location.Direction;
-import location.PointFixture;
+import location.PositionFixture;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,28 +20,28 @@ public class MarsRoverTest {
 		public void whenFacingNorth() {
 			final MarsRover rover = MarsRoverFixture.facingNorth();
 			rover.receiveCommands("f");
-			assertThat(rover.position, is(PointFixture.NORTH_OF_START));
+			assertThat(rover.position, is(PositionFixture.NORTH_OF_LANDING));
 		}
 
 		@Test
 		public void whenFacingSouth() {
 			final MarsRover rover = MarsRoverFixture.facingSouth();
 			rover.receiveCommands("f");
-			assertThat(rover.position, is(PointFixture.SOUTH_OF_START));
+			assertThat(rover.position, is(PositionFixture.SOUTH_OF_LANDING));
 		}
 
 		@Test
 		public void whenFacingEast() {
 			final MarsRover rover = MarsRoverFixture.facingEast();
 			rover.receiveCommands("f");
-			assertThat(rover.position, is(PointFixture.EAST_OF_START));
+			assertThat(rover.position, is(PositionFixture.EAST_OF_LANDING));
 		}
 
 		@Test
 		public void whenFacingWest() {
 			final MarsRover rover = MarsRoverFixture.facingWest();
 			rover.receiveCommands("f");
-			assertThat(rover.position, is(PointFixture.WEST_OF_START));
+			assertThat(rover.position, is(PositionFixture.WEST_OF_LANDING));
 		}
 
 	}
@@ -52,28 +52,28 @@ public class MarsRoverTest {
 		public void whenFacingNorth() {
 			final MarsRover rover = MarsRoverFixture.facingNorth();
 			rover.receiveCommands("b");
-			assertThat(rover.position, is(PointFixture.SOUTH_OF_START));
+			assertThat(rover.position, is(PositionFixture.SOUTH_OF_LANDING));
 		}
 
 		@Test
 		public void whenFacingSouth() {
 			final MarsRover rover = MarsRoverFixture.facingSouth();
 			rover.receiveCommands("b");
-			assertThat(rover.position, is(PointFixture.NORTH_OF_START));
+			assertThat(rover.position, is(PositionFixture.NORTH_OF_LANDING));
 		}
 
 		@Test
 		public void whenFacingEast() {
 			final MarsRover rover = MarsRoverFixture.facingEast();
 			rover.receiveCommands("b");
-			assertThat(rover.position, is(PointFixture.WEST_OF_START));
+			assertThat(rover.position, is(PositionFixture.WEST_OF_LANDING));
 		}
 
 		@Test
 		public void whenFacingWest() {
 			final MarsRover rover = MarsRoverFixture.facingWest();
 			rover.receiveCommands("b");
-			assertThat(rover.position, is(PointFixture.EAST_OF_START));
+			assertThat(rover.position, is(PositionFixture.EAST_OF_LANDING));
 		}
 
 	}
@@ -84,7 +84,7 @@ public class MarsRoverTest {
 		public void staysInPlaceWhenForwardAndThenBackwardCommands() {
 			final MarsRover rover = MarsRoverFixture.facingWest();
 			rover.receiveCommands("b", "f");
-			assertThat(rover.position, is(PointFixture.START));
+			assertThat(rover.position, is(PositionFixture.LANDING));
 		}
 	}
 
@@ -114,7 +114,7 @@ public class MarsRoverTest {
 
 			rover.receiveCommands("f", "f", "f", "f", "f");
 
-			assertThat(rover.position, is(PointFixture.EAST_OF_START));
+			assertThat(rover.position, is(PositionFixture.EAST_OF_LANDING));
 		}
 	}
 

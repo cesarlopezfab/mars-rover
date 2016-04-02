@@ -1,31 +1,31 @@
 package marsrover;
 
 import location.Direction;
-import location.Point;
-import location.PointFixture;
+import location.Position;
+import location.PositionFixture;
 
 public class MarsRoverFixture {
 
-	public static Point STARTING_POINT = PointFixture.START;
+	public static Position LANDING = PositionFixture.LANDING;
 
 	public static MarsRover facingNorth() {
-		return new MarsRover(STARTING_POINT, Direction.NORTH);
+		return new MarsRover(LANDING, Direction.NORTH);
 	}
 
 	public static MarsRover facingEast() {
-		return new MarsRover(STARTING_POINT, Direction.EAST);
+		return new MarsRover(LANDING, Direction.EAST);
 	}
 
 	public static MarsRover facingSouth() {
-		return new MarsRover(STARTING_POINT, Direction.SOUTH);
+		return new MarsRover(LANDING, Direction.SOUTH);
 	}
 
 
 	public static MarsRover facingWest() {
-		return new MarsRover(STARTING_POINT, Direction.WEST);
+		return new MarsRover(LANDING, Direction.WEST);
 	}
 
 	public static MarsRover facingEastOnSphericalPlanet(final int planetEquatorSize) {
-		return new MarsRover(STARTING_POINT, Direction.EAST);
+		return new MarsRover(LANDING, Direction.EAST);
 	}
 }

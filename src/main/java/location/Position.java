@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static location.Direction.*;
 
-public class Point {
+public class Position {
 	private static final Map<Direction, Delta> INCREMENTS = new ConcurrentHashMap<Direction, Delta>();
 	private static final Map<Direction, Delta> DECREMENTS = new ConcurrentHashMap<Direction, Delta>();
 
@@ -27,7 +27,7 @@ public class Point {
 	public final Integer x;
 	public final Integer y;
 
-	Point(Integer x, Integer y) {
+	Position(Integer x, Integer y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -40,7 +40,7 @@ public class Point {
 	}
 
 	public boolean equals(Object other) {
-		final Point o = (Point) other;
+		final Position o = (Position) other;
 		final EqualsBuilder b = new EqualsBuilder();
 		b.append(x, o.x);
 		b.append(y, o.y);
@@ -51,16 +51,16 @@ public class Point {
 		return "x: " + x + " y: " + y;
 	}
 
-	public Point nextPointIn(Direction direction) {
+	public Position nextPositionIn(Direction direction) {
 		return sum(INCREMENTS.get(direction));
 	}
 
-	public Point previousPointIn(final Direction direction) {
+	public Position previousPositionIn(final Direction direction) {
 		return sum(DECREMENTS.get(direction));
 	}
 
-	private Point sum(final Delta delta) {
-		return new Point(x + delta.x, y + delta.y);
+	private Position sum(final Delta delta) {
+		return new Position(x + delta.x, y + delta.y);
 	}
 
 
