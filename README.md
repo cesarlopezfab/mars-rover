@@ -1,3 +1,6 @@
+https://travis-ci.org/cesarlopezfab/mars-rover.svg?branch=master
+[![Coverage Status](https://coveralls.io/repos/github/cesarlopezfab/mars-rover/badge.svg?branch=master)](https://coveralls.io/github/cesarlopezfab/mars-rover?branch=master)
+
 # mars-rover
 Implementation of the mars rover kata
 
