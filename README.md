@@ -18,7 +18,7 @@ Rules:
 Nice to have features:
 
 - [ ] Rover is able to auto detect position on landing
-- [ ] Add a map of the planet to MarsRover
+- [ ] Add a map of the planet to MarsRover
 - [ ] Mars Rover can work on its own researching the surface
 - [ ] Research surface on each move
 - [ ] Enter rest mode to reload batteries
