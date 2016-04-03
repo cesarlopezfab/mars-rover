@@ -1,5 +1,6 @@
 package marsrover;
 
+import location.TestablePlanet;
 import location.Direction;
 import location.Position;
 import location.PositionFixture;
@@ -9,23 +10,29 @@ public class MarsRoverFixture {
 	public static Position LANDING = PositionFixture.LANDING;
 
 	public static MarsRover facingNorth() {
-		return new MarsRover(LANDING, Direction.NORTH);
+		final Position landing = LANDING;
+		final Direction direction = Direction.NORTH;
+		return buildRover(landing, direction);
 	}
 
 	public static MarsRover facingEast() {
-		return new MarsRover(LANDING, Direction.EAST);
+		return buildRover(LANDING, Direction.EAST);
 	}
 
 	public static MarsRover facingSouth() {
-		return new MarsRover(LANDING, Direction.SOUTH);
+		return buildRover(LANDING, Direction.SOUTH);
 	}
 
 
 	public static MarsRover facingWest() {
-		return new MarsRover(LANDING, Direction.WEST);
+		return buildRover(LANDING, Direction.WEST);
 	}
 
 	public static MarsRover facingEastOnSphericalPlanet(final int planetEquatorSize) {
-		return new MarsRover(LANDING, Direction.EAST);
+		return buildRover(LANDING, Direction.EAST);
+	}
+
+	private static MarsRover buildRover(final Position landing, final Direction direction) {
+		return new MarsRover(new TestablePlanet(), landing, direction);
 	}
 }
