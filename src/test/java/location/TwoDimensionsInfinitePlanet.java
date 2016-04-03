@@ -33,7 +33,7 @@ public class TwoDimensionsInfinitePlanet implements Planet {
 		return sum(position, DECREMENTS.get(direction));
 	}
 
-	private Position sum(final Position position, final Delta delta) {
+	protected Position sum(final Position position, final Delta delta) {
 		return new TestablePosition(position.x + delta.x, position.y + delta.y);
 	}
 }

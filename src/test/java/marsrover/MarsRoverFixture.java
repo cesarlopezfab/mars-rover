@@ -26,7 +26,7 @@ public class MarsRoverFixture {
 	}
 
 	public static MarsRover facingEastOnSphericalPlanet(final int planetEquatorSize) {
-		return buildRover(new SphericalPlanet(planetEquatorSize), LANDING, Direction.EAST);
+		return buildRover(new CircularPlanet(planetEquatorSize), LANDING, Direction.EAST);
 	}
 
 	private static MarsRover buildRover(final Position landing, final Direction direction) {
