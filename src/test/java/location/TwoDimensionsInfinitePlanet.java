@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import static location.Direction.*;
 import static location.Direction.WEST;
 
-public class TestablePlanet implements Planet {
+public class TwoDimensionsInfinitePlanet implements Planet {
 
 	private static final Map<Direction, Delta> INCREMENTS = new ConcurrentHashMap<Direction, Delta>();
 	private static final Map<Direction, Delta> DECREMENTS = new ConcurrentHashMap<Direction, Delta>();

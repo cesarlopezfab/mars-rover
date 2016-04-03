@@ -108,7 +108,6 @@ public class MarsRoverTest {
 	public class SphericalPlanet {
 
 		@Test
-		@Ignore
 		public void isAtPosition1WhenMoving5EastThroughEquatorOfSize4Planet() {
 			final MarsRover rover = MarsRoverFixture.facingEastOnSphericalPlanet(4);
 

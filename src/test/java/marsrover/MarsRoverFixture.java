@@ -1,9 +1,6 @@
 package marsrover;
 
-import location.TestablePlanet;
-import location.Direction;
-import location.Position;
-import location.PositionFixture;
+import location.*;
 
 public class MarsRoverFixture {
 
@@ -29,10 +26,14 @@ public class MarsRoverFixture {
 	}
 
 	public static MarsRover facingEastOnSphericalPlanet(final int planetEquatorSize) {
-		return buildRover(LANDING, Direction.EAST);
+		return buildRover(new SphericalPlanet(planetEquatorSize), LANDING, Direction.EAST);
 	}
 
 	private static MarsRover buildRover(final Position landing, final Direction direction) {
-		return new MarsRover(new TestablePlanet(), landing, direction);
+		return buildRover(new TwoDimensionsInfinitePlanet(), landing, direction);
+	}
+
+	private static MarsRover buildRover(final Planet planet, final Position landing, final Direction direction) {
+		return new MarsRover(planet, landing, direction);
 	}
 }

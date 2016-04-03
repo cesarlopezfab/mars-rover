@@ -4,7 +4,7 @@ import static location.Direction.*;
 
 public class PositionFixture {
 
-	public static final Planet PLANET = new TestablePlanet();
+	public static final Planet PLANET = new TwoDimensionsInfinitePlanet();
 
 	public static final Position LANDING = new TestablePosition(0, 0);
 
