@@ -4,6 +4,7 @@ import com.sun.tools.attach.VirtualMachine;
 import org.aspectj.weaver.loadtime.Agent;
 
 import java.lang.management.ManagementFactory;
+import java.net.URLDecoder;
 
 public class AspectjLoader {
 	public static void load() {
@@ -31,7 +32,8 @@ public class AspectjLoader {
 		String pid = nameOfRunningVM.substring(0, p);
 		try {
 			VirtualMachine vm = VirtualMachine.attach(pid);
-			String jarFilePath = System.getProperty("AGENT_PATH");
+			String path = Agent.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+			String jarFilePath = URLDecoder.decode(path, "UTF-8");
 			vm.loadAgent(jarFilePath);
 			vm.detach();
 		} catch (Exception e) {
