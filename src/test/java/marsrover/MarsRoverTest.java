@@ -120,9 +120,10 @@ public class MarsRoverTest {
 
 	public class ObstacleDetection {
 
+		final MarsRover rover = MarsRoverFixture.facingNorth();
+
 		@Test
 		public void stopsWhenObstacleDetectedMovingForward() {
-			final MarsRover rover = MarsRoverFixture.facingNorth();
 			rover.planet.addObstacle(PositionFixture.NORTH_OF_LANDING);
 			rover.executeCommands(forward);
 			assertThat(rover.position, is(PositionFixture.LANDING));
@@ -131,10 +132,16 @@ public class MarsRoverTest {
 
 		@Test
 		public void stopsWhenObstacleDetectedMovingBackward() {
-			final MarsRover rover = MarsRoverFixture.facingNorth();
 			rover.planet.addObstacle(PositionFixture.SOUTH_OF_LANDING);
 			rover.executeCommands(backward);
 			assertThat(rover.position, is(PositionFixture.LANDING));
+		}
+
+		@Test
+		public void continuesMovingAfterRotation() {
+			rover.planet.addObstacle(PositionFixture.SOUTH_OF_LANDING);
+			rover.executeCommands(backward, new RotateLeftCommand(), forward);
+			assertThat(rover.position, is(PositionFixture.WEST_OF_LANDING));
 		}
 	}
 
