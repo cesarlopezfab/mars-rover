@@ -1,16 +1,11 @@
 package marsrover;
 
-import location.Position;
-
-class BackwardCommand implements Command{
+class BackwardCommand implements Command {
 
 	@Override
+	@MovementCommand
 	public void execute(final MarsRover marsRover) {
-		Position position = marsRover.planet.previousFromGoingIn(marsRover.position, marsRover.direction);
-
-		if (marsRover.planet.hasNoObstacle(position)) {
-			marsRover.position = position;
-		}
+		marsRover.position = marsRover.planet.previousFromGoingIn(marsRover.position, marsRover.direction);
 	}
 
 }

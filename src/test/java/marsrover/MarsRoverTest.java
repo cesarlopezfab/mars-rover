@@ -121,6 +121,7 @@ public class MarsRoverTest {
 
 	public class ObstacleDetection {
 
+
 		final TwoDimensionsInfinitePlanet planet = new TwoDimensionsInfinitePlanet();
 		final MarsRover rover = MarsRoverFixture.facingNorth(planet);
 

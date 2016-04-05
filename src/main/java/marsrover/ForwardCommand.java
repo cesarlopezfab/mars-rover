@@ -1,18 +1,11 @@
 package marsrover;
 
-import location.Position;
-
 class ForwardCommand implements Command {
 
 	@Override
+	@MovementCommand
 	public void execute(final MarsRover marsRover) {
-
-		final Position position = marsRover.planet.nextFromGoingIn(marsRover.position, marsRover.direction);
-
-		if (marsRover.planet.hasNoObstacle(position)) {
-			marsRover.position = position;
-		}
-
+		marsRover.position = marsRover.planet.nextFromGoingIn(marsRover.position, marsRover.direction);
 	}
 
 }
