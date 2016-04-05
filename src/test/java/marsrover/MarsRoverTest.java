@@ -3,6 +3,7 @@ package marsrover;
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
 import location.Direction;
 import location.PositionFixture;
+import location.TwoDimensionsInfinitePlanet;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -120,27 +121,34 @@ public class MarsRoverTest {
 
 	public class ObstacleDetection {
 
-		final MarsRover rover = MarsRoverFixture.facingNorth();
+		final TwoDimensionsInfinitePlanet planet = new TwoDimensionsInfinitePlanet();
+		final MarsRover rover = MarsRoverFixture.facingNorth(planet);
 
 		@Test
 		public void stopsWhenObstacleDetectedMovingForward() {
-			rover.planet.addObstacle(PositionFixture.NORTH_OF_LANDING);
+			planet.addObstacle(PositionFixture.NORTH_OF_LANDING);
+
 			rover.executeCommands(forward);
+
 			assertThat(rover.position, is(PositionFixture.LANDING));
 		}
 
 
 		@Test
 		public void stopsWhenObstacleDetectedMovingBackward() {
-			rover.planet.addObstacle(PositionFixture.SOUTH_OF_LANDING);
+			planet.addObstacle(PositionFixture.SOUTH_OF_LANDING);
+
 			rover.executeCommands(backward);
+
 			assertThat(rover.position, is(PositionFixture.LANDING));
 		}
 
 		@Test
 		public void continuesMovingAfterRotation() {
-			rover.planet.addObstacle(PositionFixture.SOUTH_OF_LANDING);
+			planet.addObstacle(PositionFixture.SOUTH_OF_LANDING);
+
 			rover.executeCommands(backward, new RotateLeftCommand(), forward);
+
 			assertThat(rover.position, is(PositionFixture.WEST_OF_LANDING));
 		}
 	}

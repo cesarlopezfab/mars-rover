@@ -6,7 +6,5 @@ public interface Planet {
 
 	Position previousFromGoingIn(Position position, Direction direction);
 
-	void addObstacle(Position position);
-
 	boolean hasNoObstacle(final Position position);
 }
