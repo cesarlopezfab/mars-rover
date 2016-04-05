@@ -1,4 +1,10 @@
 package marsrover;
 
-public class RotateRightCommand implements Command {
+class RotateRightCommand implements Command {
+
+	@Override
+	public void execute(final MarsRover marsRover) {
+		marsRover.direction = marsRover.direction.next();
+	}
+
 }

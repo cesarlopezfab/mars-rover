@@ -16,25 +16,10 @@ public class MarsRover {
 		this.planet = planet;
 	}
 
-	public void receiveCommands(Command... commands) {
+	public void executeCommands(final Command... commands) {
 
 		for (final Command command : commands) {
-
-			if (command instanceof ForwardCommand) {
-				position = planet.nextFromGoingIn(position, direction);
-			}
-
-			if (command instanceof BackwardCommand) {
-				position = planet.previousFromGoingIn(position, direction);
-			}
-
-			if (command instanceof RotateLeftCommand) {
-				direction = direction.previous();
-			}
-
-			if (command instanceof RotateRightCommand) {
-				direction = direction.next();
-			}
+			command.execute(this);
 		}
 
 	}
