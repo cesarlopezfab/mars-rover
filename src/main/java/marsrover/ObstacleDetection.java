@@ -1,5 +1,6 @@
 package marsrover;
 
+import location.Position;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -7,14 +8,18 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class ObstacleDetection {
 
-	@Around(value = "@annotation(annotation)")
+	@Around("execution(@marsrover.MovementCommand * *(..))")
 	public Object detectObstacle(final ProceedingJoinPoint joinPoint, final MovementCommand annotation) throws Throwable {
-		System.out.println("eeyy!!!");
 		final MarsRover marsRover = (MarsRover) joinPoint.getArgs()[0];
-		if (marsRover.planet.hasNoObstacle(marsRover.position)) {
-			final Object retVal = joinPoint.proceed();
+		final Position previous = marsRover.position;
+
+		joinPoint.proceed();
+
+		if (!marsRover.planet.hasNoObstacle(marsRover.position)) {
+			marsRover.position = previous;
 		}
 
 		return marsRover;
 	}
+
 }

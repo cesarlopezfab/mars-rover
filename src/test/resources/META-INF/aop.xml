@@ -2,4 +2,7 @@
     <aspects>
         <aspect name="marsrover.ObstacleDetection"/>
     </aspects>
+    <weaver options="-verbose">
+        <include within="*"/>
+    </weaver>
 </aspectj>
