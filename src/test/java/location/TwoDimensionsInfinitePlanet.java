@@ -1,10 +1,11 @@
 package location;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static location.Direction.*;
-import static location.Direction.WEST;
 
 public class TwoDimensionsInfinitePlanet implements Planet {
 
@@ -23,6 +24,8 @@ public class TwoDimensionsInfinitePlanet implements Planet {
 		DECREMENTS.put(WEST, new Delta(1, 0));
 	}
 
+	private Set<Position> obstacles = new HashSet<Position>();
+
 	@Override
 	public Position nextFromGoingIn(final Position position, Direction direction) {
 		return sum(position, INCREMENTS.get(direction));
@@ -31,6 +34,16 @@ public class TwoDimensionsInfinitePlanet implements Planet {
 	@Override
 	public Position previousFromGoingIn(final Position position, final Direction direction) {
 		return sum(position, DECREMENTS.get(direction));
+	}
+
+	@Override
+	public void addObstacle(final Position position) {
+		obstacles.add(position);
+	}
+
+	@Override
+	public boolean hasNoObstacle(final Position position) {
+		return !obstacles.contains(position);
 	}
 
 	protected Position sum(final Position position, final Delta delta) {

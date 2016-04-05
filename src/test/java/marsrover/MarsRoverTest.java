@@ -118,4 +118,15 @@ public class MarsRoverTest {
 		}
 	}
 
+	public class ObstacleDetection {
+
+		@Test
+		public void stopsWhenObstacleDetected() {
+			final MarsRover rover = MarsRoverFixture.facingNorth();
+			rover.planet.addObstacle(PositionFixture.NORTH_OF_LANDING);
+			rover.executeCommands(forward);
+			assertThat(rover.position, is(PositionFixture.LANDING));
+		}
+	}
+
 }

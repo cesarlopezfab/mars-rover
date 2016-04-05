@@ -30,6 +30,7 @@ Nice to have features:
 - [ ] Random events on planets (eclipses, solar flares...)
 - [ ] Thrusters
 - [ ] Movement on liquid
+- [ ] Rover should only be able to check for obstacles if it has detection module
 
 Technical issues:
 
