@@ -16,23 +16,23 @@ public class MarsRover {
 		this.planet = planet;
 	}
 
-	public void receiveCommands(String... commands) {
+	public void receiveCommands(Command... commands) {
 
-		for (final String command : commands) {
+		for (final Command command : commands) {
 
-			if ("f".equals(command)) {
+			if (command instanceof ForwardCommand) {
 				position = planet.nextFromGoingIn(position, direction);
 			}
 
-			if ("b".equals(command)) {
+			if (command instanceof BackwardCommand) {
 				position = planet.previousFromGoingIn(position, direction);
 			}
 
-			if ("l".equals(command)) {
+			if (command instanceof RotateLeftCommand) {
 				direction = direction.previous();
 			}
 
-			if ("r".equals(command)) {
+			if (command instanceof RotateRightCommand) {
 				direction = direction.next();
 			}
 		}
