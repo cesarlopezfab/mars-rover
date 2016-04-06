@@ -16,11 +16,7 @@ public class AspectjLoader {
 	public static boolean isAspectJAgentLoaded() {
 		try {
 			Agent.getInstrumentation();
-		} catch (NoClassDefFoundError e) {
-			System.out.println(e);
-			return false;
 		} catch (UnsupportedOperationException e) {
-			System.out.println(e);
 			return dynamicallyLoadAspectJAgent();
 		}
 		return true;
@@ -37,7 +33,6 @@ public class AspectjLoader {
 			vm.loadAgent(jarFilePath);
 			vm.detach();
 		} catch (Exception e) {
-			System.out.println(e);
 			return false;
 		}
 		return true;
