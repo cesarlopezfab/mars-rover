@@ -9,13 +9,13 @@ import org.aspectj.lang.annotation.Aspect;
 public class ObstacleDetection {
 
 	@Around("execution(@marsrover.MovementCommand * *(..))")
-	public Object detectObstacle(final ProceedingJoinPoint joinPoint, final MovementCommand annotation) throws Throwable {
+	public Object detectObstacle(final ProceedingJoinPoint joinPoint) throws Throwable {
 		final MarsRover marsRover = (MarsRover) joinPoint.getArgs()[0];
 		final Position previous = marsRover.position;
 
 		joinPoint.proceed();
 
-		if (!marsRover.planet.hasNoObstacle(marsRover.position)) {
+		if (marsRover.planet.isObstacleAt(marsRover.position)) {
 			marsRover.position = previous;
 		}
 

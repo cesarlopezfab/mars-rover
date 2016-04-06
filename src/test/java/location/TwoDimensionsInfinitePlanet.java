@@ -42,8 +42,8 @@ public class TwoDimensionsInfinitePlanet implements TestablePlanet {
 	}
 
 	@Override
-	public boolean hasNoObstacle(final Position position) {
-		return !obstacles.contains(position);
+	public boolean isObstacleAt(final Position position) {
+		return obstacles.contains(position);
 	}
 
 	protected Position sum(final Position position, final Delta delta) {
