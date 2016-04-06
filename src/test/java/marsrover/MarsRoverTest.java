@@ -139,6 +139,7 @@ public class MarsRoverTest {
 
 			assertThat(rover.position, is(PositionFixture.LANDING));
 			assertTrue(rover.detectedObstacles.contains(PositionFixture.NORTH_OF_LANDING));
+			assertThat(rover.notifications(), is("obstacle"));
 		}
 
 
@@ -150,6 +151,7 @@ public class MarsRoverTest {
 
 			assertThat(rover.position, is(PositionFixture.LANDING));
 			assertTrue(rover.detectedObstacles.contains(PositionFixture.SOUTH_OF_LANDING));
+			assertThat(rover.notifications(), is("obstacle"));
 		}
 
 		@Test
@@ -160,6 +162,14 @@ public class MarsRoverTest {
 
 			assertThat(rover.position, is(PositionFixture.WEST_OF_LANDING));
 			assertTrue(rover.detectedObstacles.contains(PositionFixture.SOUTH_OF_LANDING));
+			assertThat(rover.notifications(), is("obstacle"));
+		}
+
+		@Test
+		public void itDoesntReportObstacle() {
+			rover.executeCommands(new BackwardCommand(), new RotateLeftCommand(), new ForwardCommand());
+
+			assertThat(rover.notifications(), is(""));
 		}
 	}
 

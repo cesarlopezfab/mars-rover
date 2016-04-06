@@ -28,4 +28,10 @@ public class MarsRover {
 
 	}
 
+	public String notifications() {
+		if (detectedObstacles.isEmpty()) {
+			return "";
+		}
+		return "obstacle";
+	}
 }
