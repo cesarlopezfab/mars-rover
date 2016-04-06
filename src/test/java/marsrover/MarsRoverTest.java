@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(HierarchicalContextRunner.class)
 public class MarsRoverTest {
@@ -137,6 +138,7 @@ public class MarsRoverTest {
 			rover.executeCommands(new ForwardCommand());
 
 			assertThat(rover.position, is(PositionFixture.LANDING));
+			assertTrue(rover.detectedObstacles.contains(PositionFixture.NORTH_OF_LANDING));
 		}
 
 
@@ -147,6 +149,7 @@ public class MarsRoverTest {
 			rover.executeCommands(new BackwardCommand());
 
 			assertThat(rover.position, is(PositionFixture.LANDING));
+			assertTrue(rover.detectedObstacles.contains(PositionFixture.SOUTH_OF_LANDING));
 		}
 
 		@Test
@@ -156,6 +159,7 @@ public class MarsRoverTest {
 			rover.executeCommands(new BackwardCommand(), new RotateLeftCommand(), new ForwardCommand());
 
 			assertThat(rover.position, is(PositionFixture.WEST_OF_LANDING));
+			assertTrue(rover.detectedObstacles.contains(PositionFixture.SOUTH_OF_LANDING));
 		}
 	}
 

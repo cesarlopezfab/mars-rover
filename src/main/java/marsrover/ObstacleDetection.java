@@ -16,6 +16,7 @@ public class ObstacleDetection {
 		joinPoint.proceed();
 
 		if (marsRover.planet.isObstacleAt(marsRover.position)) {
+			marsRover.detectedObstacles.add(marsRover.position);
 			marsRover.position = previous;
 		}
 
